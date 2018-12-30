@@ -21,6 +21,7 @@ int main(int argc, char **argv)
     //创建节点句柄
   ros::NodeHandle n;
     //创建一个Subscriber，订阅名为gps_info的topic，注册回调函数gspCallback
+    //其中参数1为消息队列的缓冲区长度，若要尽量实收实发，队列长度越小越好
   ros::Subscriber sub = n.subscribe("gps_info", 1, gpsCallback);
   //ros::spin()用于调用所有可触发的回调函数。将进入循环，不会返回，类似于在循环里反复调用ros::spinOnce()。
   ros::spin(); 

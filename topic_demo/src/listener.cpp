@@ -16,8 +16,11 @@ void gpsCallback(const topic_demo::gps::ConstPtr &msg)
 
 int main(int argc, char **argv)
 {
+    //ROS节点初始化
   ros::init(argc, argv, "listener");
+    //创建节点句柄
   ros::NodeHandle n;
+    //创建一个Subscriber，订阅名为gps_info的topic，注册回调函数gspCallback
   ros::Subscriber sub = n.subscribe("gps_info", 1, gpsCallback);
   //ros::spin()用于调用所有可触发的回调函数。将进入循环，不会返回，类似于在循环里反复调用ros::spinOnce()。
   ros::spin(); 
